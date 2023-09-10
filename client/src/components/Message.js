@@ -18,6 +18,14 @@ function Message({ message, currentUser, onMessageDelete, onUpdateMessage }) {
     onMessageDelete(id);
   }
 
+  function handleDeleteClick() {
+    fetch(`http://localhost:5555/messages/${id}`, {
+      method: "DELETE",
+    });
+
+    onMessageDelete(id);
+  }
+
   function handleUpdateMessage(updatedMessage) {
     setIsEditing(false);
     onUpdateMessage(updatedMessage);
